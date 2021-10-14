@@ -8,11 +8,11 @@ import org.openqa.selenium.WebDriver;
 public class Scrolling {
     private WebDriver driver;
     private boolean toBottom;
-    private int timeout;
+    private int maxAttempts;
 
     public Scrolling() {
         this.driver = null;
-        this.timeout = 1;
+        this.maxAttempts = 1;
     }
 
     public void setDriver(WebDriver driver) {
@@ -23,8 +23,8 @@ public class Scrolling {
         this.toBottom = toBottom;
     }
 
-    public void setTimeout(int timeout) {
-        this.timeout = timeout;
+    public void setMaxAttempts(int maxAttempts) {
+        this.maxAttempts = maxAttempts;
     }
 
     public void perform() {
@@ -32,13 +32,13 @@ public class Scrolling {
         int xPosition = dimension.width / 2;
         int initialPositionY = dimension.height / 2;
         int finalPositionY = toBottom ? (dimension.height / 4) : (dimension.height - dimension.height / 4);
-        TouchAction<?> action = new TouchAction((AppiumDriver<?>) driver);
-        var timeExecution = 0;
-        while (timeExecution <= timeout) {
+        TouchAction<?> action = new TouchAction<>((AppiumDriver<?>) driver);
+        var excecutionNumber = 0;
+        while (excecutionNumber < maxAttempts) {
             action.longPress(PointOption.point(xPosition, initialPositionY));
             action.moveTo(PointOption.point(xPosition, finalPositionY));
             action.release().perform();
-            timeExecution++;
+            excecutionNumber++;
         }
     }
 }

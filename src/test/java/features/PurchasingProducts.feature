@@ -6,6 +6,6 @@ Feature: As user I want to purchase products that are in stock
     Then he must see CONGRATS
 
   Scenario: Deleting products from shopping cart
-    Given a user has products on his shopping cart
-    When he doesn't want to purchase a product
+    Given a user was able to purchase products
+    When he does not want to purchase the product Luz de bicicleta Sauce Labs
     Then he must be able to delete it from purchasing cart

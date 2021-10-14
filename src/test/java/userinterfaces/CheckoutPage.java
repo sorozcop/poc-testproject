@@ -12,4 +12,10 @@ public class CheckoutPage {
     public static final By BTN_TERMINATE = MobileBy.AccessibilityId("test-TERMINAR");
     public static final By TXT_CONGRATS = MobileBy.xpath("//*[@text='GRACIAS POR SU ORDEN']");
     public static final By TXT_PROCESSED_ORDER = MobileBy.xpath("//*[@text='Su orden ha sido procesada y llegara cuanto antes!']");
+    public static final By BTN_DELETE_ITEM = MobileBy.AccessibilityId("test-Delete");
+
+    public static By theProductOnPurchasingCart(String productName) {
+        return MobileBy.xpath("//*[@content-desc='test-Descripción']//following::*[contains(@text,'".concat(productName).concat("')]"));
+    }
+
 }

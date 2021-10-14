@@ -27,7 +27,7 @@ public class Scroll {
     }
 
     public Scroll untilMaxAttempts(int timeout) {
-        this.scrolling.setTimeout(timeout);
+        this.scrolling.setMaxAttempts(timeout);
         return this;
     }
 

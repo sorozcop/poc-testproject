@@ -23,6 +23,11 @@ public class Find {
         return this;
     }
 
+    public Find untilMaxAttepmts(int maxAttempts) {
+        this.finder.setMaxAttepmts(maxAttempts);
+        return this;
+    }
+
     public Finder release() {
         return this.finder;
     }
