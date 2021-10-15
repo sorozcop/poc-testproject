@@ -29,8 +29,18 @@ public class WaitAtLeast {
                 .until(ExpectedConditions.visibilityOfElementLocated(byElement));
     }
 
+    public void isNotVisible() {
+        new WebDriverWait(getDriver(), timeout)
+                .until(ExpectedConditions.invisibilityOfElementLocated(byElement));
+    }
+
     public WebElement toBeClickable() {
         return new WebDriverWait(getDriver(), timeout)
                 .until(ExpectedConditions.elementToBeClickable(byElement));
+    }
+
+    public void toBeEnabled() {
+        new WebDriverWait(getDriver(), timeout)
+                .until(ExpectedConditions.attributeToBe(byElement, "enabled", "true"));
     }
 }
